@@ -1,0 +1,36 @@
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+  background-color: white;
+  
+}
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+th{
+  background-color: hsl(240, 4%, 95%);
+  color: #102a42;
+}
+tr:hover {
+  background-color: hsl(240, 4%, 95%);
+}
+.buttons {
+  display: flex;
+  justify-content: right;
+  padding: 20px;
+  background-color: white;
+}
+.buttons span{
+  padding-right: 20px;
+  color: #102a42;
+}
+.buttons button {
+  margin-right: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  width: 32px;
+  cursor: pointer;
+  font-size: 17px;
+}
