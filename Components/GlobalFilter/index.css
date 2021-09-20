@@ -1,0 +1,10 @@
+.search-div {
+    margin-top: 70px;
+    padding-left: 50px;
+}
+.search-div input {
+    border: 1px solid #ddd;
+    outline: none;
+    height: 25px;
+    padding-left: 10px;
+}

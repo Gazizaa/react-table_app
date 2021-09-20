@@ -2,7 +2,10 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
   background-color: white;
-  
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+  margin-top: 10px;
 }
 th,
 td {
@@ -10,8 +13,23 @@ td {
   padding: 8px;
 }
 th{
-  background-color: hsl(240, 4%, 95%);
+  background-color: hsl(240, 11%, 93%);
   color: #102a42;
+}
+th:nth-child(1), th:nth-child(2){
+  width: 30px;
+}
+th:last-child{
+  width: 80px;
+}
+th:nth-child(3){
+  width: 130px;
+}
+th:nth-child(4){
+  width: 140px;
+}
+th:nth-child(5){
+  width: 200px;
 }
 tr:hover {
   background-color: hsl(240, 4%, 95%);
@@ -31,6 +49,14 @@ tr:hover {
   background-color: white;
   border: 1px solid #ddd;
   width: 32px;
-  cursor: pointer;
   font-size: 17px;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+.delete-btn{
+  background: none;
+  border: none;
+  font-weight: bold;
 }

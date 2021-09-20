@@ -1,7 +1,8 @@
 import React from 'react';
-import { useTable, usePagination, useRowSelect } from "react-table";
+import { useTable, usePagination, useRowSelect, useGlobalFilter } from "react-table";
 import './index.css';
-import { Checkbox } from '../Checkbox.js';
+import { Checkbox } from '../Checkbox/index.js';
+import GlobalFilter from '../GlobalFilter';
 
 
 const Table = ({ columns, data }) => {
@@ -15,8 +16,9 @@ const Table = ({ columns, data }) => {
         canNextPage,
         canPreviousPage,
         pageOptions,
+        setGlobalFilter,
         prepareRow, 
-        state: { pageIndex },
+        state: { pageIndex, globalFilter },
       } = useTable({
         columns,
         data,
@@ -25,21 +27,18 @@ const Table = ({ columns, data }) => {
             selectedRowIds: {'1': true, '3': true, '6': true}, 
         }
       },
+       useGlobalFilter,
        usePagination,
        useRowSelect,
        hooks => {
         hooks.visibleColumns.push(columns => [
           {
             id: 'selection',
-            // The header can use the table's getToggleAllRowsSelectedProps method
-            // to render a checkbox
             Header: ({ getToggleAllRowsSelectedProps }) => (
               <div>
                 <Checkbox {...getToggleAllRowsSelectedProps()} />
               </div>
             ),
-            // The cell can use the individual row's getToggleRowSelectedProps method
-            // to the render a checkbox
             Cell: ({ row }) => (
               <div>
                 <Checkbox {...row.getToggleRowSelectedProps()} />
@@ -53,6 +52,7 @@ const Table = ({ columns, data }) => {
 
     return (
         <>
+          <GlobalFilter globalFilter={globalFilter} setGlobalFilter={setGlobalFilter}/>
             <table {...getTableProps()}>
                 <thead>
                     {headerGroups.map(headerGroup => (
