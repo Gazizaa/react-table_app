@@ -5,7 +5,7 @@ import Users from './Pages/Users';
 function App() {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div>
         <Route exact path='/' component={Home}/>
         <Route exact path='/users/:id' component={Users}/>
